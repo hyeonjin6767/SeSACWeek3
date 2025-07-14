@@ -46,7 +46,6 @@ class ViewController: UIViewController {
         view.makeToast("안녕하세요 만나서 반갑습니다.", duration: 5, position: .top) //5초동안 떠있게, 상단에
         
         
-        
     }
 }
 
