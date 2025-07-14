@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+import Toast
 
 class ViewController: UIViewController {
 
@@ -37,9 +37,16 @@ class ViewController: UIViewController {
 
         //“Working directory” 상태 :
         //주석 추가
-
-
-
+    
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //Toast-Swift써보자 //바탕뷰에만 적용 (레이블같은곳에는 적용불가)
+        view.makeToast("안녕하세요 만나서 반갑습니다.", duration: 5, position: .top) //5초동안 떠있게, 상단에
+        
+        
+        
     }
 }
 
