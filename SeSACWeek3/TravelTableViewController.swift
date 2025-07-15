@@ -30,14 +30,27 @@ class TravelTableViewController: UITableViewController {
         Travel(name: "서울5", overview: "선유df원 좋아요", date: "251201", like: false)
         ]
     
+    
+    
+    
+    //"TravelTableViewCell"가 반복되는게 찝집해 : 휴먼에러 발생 가능성 업 //그래서 아래처럼
+    //let identifier = "TravelTableViewCell" //클래스에서 선언했으니까 얘는 인스턴스 프로퍼티
+    //근데... 인스턴스 프로퍼티로 만들면 identifier의 공간 생성이 너무 중복됨
+    //그래서 하나의 공간으로 만들자
+    //static let identifier = "TravelTableViewCell"
+    //TravelTableViewCell에 static 놓고(셀의 이름이니까 셀에 두는게 보기 좋으니까) TravelTableViewCell.identifier(타입 프로퍼티 접근 방법)로 사용
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //기존 방법처럼 테이블뷰 만들고 빌드하면 스레드에러 발생 : 셀 등록이 안되어 있어서
         //별도 셀(XIB)을 원래 셀 자리에 등록해주는 과정이 필요
         //XIB셀로 구성하는 순간 "등록" 과정 필수
-        let xib = UINib(nibName: "TravelTableViewCell", bundle: nil) //테이블뷰셀의 파일명, nil(같은 파일 내에서 가져오는 거라 불필요한 과정: 다른 파일에 있다면 위치 설정 필요)
-        tableView.register(xib, forCellReuseIdentifier: "TravelTableViewCell") //identifier
+        let xib = UINib(nibName: TravelTableViewCell.identifier, bundle: nil) //테이블뷰셀의 파일명, nil(같은 파일 내에서 가져오는 거라 불필요한 과정: 다른 파일에 있다면 위치 설정 필요)
+        tableView.register(xib, forCellReuseIdentifier: TravelTableViewCell.identifier) //identifier
         
         tableView.rowHeight = UITableView.automaticDimension //유동적 높이 설정
     }
@@ -48,7 +61,7 @@ class TravelTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelTableViewCell.identifier, for: indexPath) as! TravelTableViewCell
         
         //let row = travel[indexPath.row] //반복을 줄이는 방법
         //cell.configureTravelLabel(row: row) //함수 호출로 TravelTableViewCell와 업무분배

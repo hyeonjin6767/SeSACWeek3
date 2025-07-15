@@ -8,14 +8,21 @@
 import UIKit
 
 class TravelTableViewCell: UITableViewCell {
+    
+    
+    static let identifier = "TravelTableViewCell"
+    
+    //let color = Color() //빈도수를 줄이기 위해 static으로 바꾸자
 
-    @IBOutlet var travelLabel: UILabel!
+    
+    @IBOutlet var travelLabel: UILabel! //let travelLabel = UILabel() :얘도 인스턴스
+
     
     @IBOutlet var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        travelLabel.backgroundColor = .yellow
+        travelLabel.backgroundColor = Color.jackRed //static은 바로 호출 가능
         travelLabel.text = "테스트"
         travelLabel.font = .boldSystemFont(ofSize: 17)
         
