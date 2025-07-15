@@ -30,6 +30,7 @@ class TransitionViewController: UIViewController {
         //뷰컨에서 아웃렛이 생성이 늦게 됨 : 레이블같은 아웃렛을 가져오면 런타임오류가 발생해야 되는게 맞는데..............오류발생안하고 잘 됨..........?
         vc.testLabel.text = "Test"
         vc.testLabel.backgroundColor = .purple
+        //위에 vc.view.backgroundColor = .yellow를 주석처리 하고 실행 하면 정상적으로 런타임오류 발생함!
         
         
         

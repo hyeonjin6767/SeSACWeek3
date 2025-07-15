@@ -17,7 +17,6 @@ class TravelTableViewCell: UITableViewCell {
     
     @IBOutlet var travelLabel: UILabel! //let travelLabel = UILabel() :얘도 인스턴스
 
-    
     @IBOutlet var dateLabel: UILabel!
     
     override func awakeFromNib() {

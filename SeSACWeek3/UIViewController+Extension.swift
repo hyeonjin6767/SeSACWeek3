@@ -19,7 +19,7 @@ extension UIViewController {
         view.backgroundColor =  .darkGray
         
     }
-    
+    //예를 들어 반복적으로 자주 사용하는 얼럿같은거
     func showAlert() {
         
     }
